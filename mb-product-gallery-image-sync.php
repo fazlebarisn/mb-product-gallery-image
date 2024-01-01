@@ -168,7 +168,7 @@ function link_gallery_images_to_product($product, $mb_gallery_imgs) {
 
 function mb_product_gallery_image_sync_menu_pages() {
     add_submenu_page(
-        'edit.php?post_type=product',
+        'mb_syncs',
         'Product Gallery Image Sync',
         'Product Gallery Image Sync',
         'manage_options',
@@ -176,7 +176,7 @@ function mb_product_gallery_image_sync_menu_pages() {
         'mb_products_gallery_image_sync'
     );
 }
-add_action('admin_menu', 'mb_product_gallery_image_sync_menu_pages');
+add_action('admin_menu', 'mb_product_gallery_image_sync_menu_pages', 999);
 
 
 
