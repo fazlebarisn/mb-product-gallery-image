@@ -180,24 +180,50 @@ add_action('admin_menu', 'mb_product_gallery_image_sync_menu_pages', 999);
 
 
 
-$activeSaleprice;
-$regularSalePrice;
-$activediscount;
-$matchcatseg;
-$salePriceLevelDiscountPrecent;
-$regPriceLevelDiscountPercent;
+// $activeSaleprice;
+// $regularSalePrice;
+// $activediscount;
+// $matchcatseg;
+// $salePriceLevelDiscountPrecent;
+// $regPriceLevelDiscountPercent;
+
+// if ($activeSaleprice) {
+//     if ($activediscount && $matchcatseg ) {
+//         $activeSaleprice-$salePriceLevelDiscountPrecent;
+//     }else{
+//         $activeSaleprice;
+//     }
+    
+// }else{
+//     if ($activediscount && $matchcatseg) {
+//         $regularSalePrice-$regPriceLevelDiscountPercent;
+//     }else{
+//         $regularSalePrice;
+//     }
+// }
+
+/**
+ * Warning: Undefined variable fixed by Initialize with a default value
+ * @author Fazle Bari 
+ */
+$activeSaleprice = 0; 
+$regularSalePrice = 0; 
+$activediscount = 0; 
+$matchcatseg = false; 
+$salePriceLevelDiscountPrecent = 0; 
+$regPriceLevelDiscountPercent = 0; 
 
 if ($activeSaleprice) {
-    if ($activediscount && $matchcatseg ) {
-        $activeSaleprice-$salePriceLevelDiscountPrecent;
-    }else{
+    if ($activediscount && $matchcatseg) {
+        $activeSaleprice -= $salePriceLevelDiscountPrecent; // Corrected the subtraction
+    } else {
         $activeSaleprice;
     }
-    
-}else{
+} else {
     if ($activediscount && $matchcatseg) {
-        $regularSalePrice-$regPriceLevelDiscountPercent;
-    }else{
+        $regularSalePrice -= $regPriceLevelDiscountPercent; // Corrected the subtraction
+    } else {
         $regularSalePrice;
     }
 }
+
