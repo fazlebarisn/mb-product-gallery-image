@@ -103,69 +103,10 @@ function link_gallery_images_to_product($product, $mb_gallery_imgs) {
  # code...
 }
 
-
-
-
-
-// function link_gallery_images_to_product($product, $mb_gallery_imgs) {
-//     $product_id = $product->ID;
-//     if (!post_exists($product_id)) {
-//         return;
-//     }
-
-//     // Loop through the gallery image URLs
-//     update_post_meta($product_id, '_product_image_gallery', implode(',', $mb_gallery_imgs));
-//     wp_update_post(array('ID' => $product_id));
-
-
-
-   
-
-//     $product_id = $product->ID;
-
-//     // Find and link images to the product by replacing image filenames.
-//     $attachment_ids = array(); // An array to store attachment IDs
-//     foreach ($mb_gallery_imgs as $image_link) {
-
-//         //dd($image_link);
-//         // Set the image path
-//         $image_path = str_replace('\\', '/', $image_link);
-//         $image_base = "feature-img/".basename($image_path);
-//         $image_url = site_url('/wp-content/uploads/feature-img/' . $image_base);
-
-//         // Prepare the attachment data
-//         $attachment_data = array(
-//             'post_title' => basename($image_base),
-//             'post_status' => 'inherit',
-//             'guid' => $image_url,
-//         );
-
-//         // Insert the attachment
-//         $attachment_id = wp_insert_attachment($attachment_data, $image_base, $product_id);
-//         // echo "<pre>";
-//         // print_r($attachment_id);
-//         // echo "</pre>";
-//         // Set the image as a gallery image
-//         $result = add_post_meta($product_id, '_product_image_gallery', $attachment_id, true);
-//         $attachment_ids[] = $attachment_id;
-
-//         // echo "<pre>";
-//         // print_r($result);
-//         // echo "</pre>";
-//     }
-
-//     $image_gallery = implode(',', $attachment_ids);
-
-//     //dd($image_gallery);
-//     // Update the product's _product_image_gallery post meta field
-//     update_post_meta($product_id, '_product_image_gallery', $image_gallery);
-
-// // Update the product to save changes
-// wp_update_post(array('ID' => $product_id));
-
-    
-// }
-
+/**
+ * Add submenu under the Mb Syncs Menu
+ * @author Fazle Bari
+ */
 function mb_product_gallery_image_sync_menu_pages() {
     add_submenu_page(
         'mb_syncs',
